@@ -28,6 +28,7 @@ namespace CnxCacheMonitoring
 			Type comType = Type.GetTypeFromProgID(progId);
 			D7DCCXLib.ID7ConnectionCacheServer cnxCache = Activator.CreateInstance(comType) as D7DCCXLib.ID7ConnectionCacheServer;
 			TestMonitor(cnxCache);
+			//TestGetData(cnxCache);
 		}
 		
 		void TestMonitor(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
@@ -47,7 +48,14 @@ namespace CnxCacheMonitoring
 
 		void TestGetData(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
 		{
-			var I = cnxCache.GetConnection(10000, "Local SQL Server", "", "");
+			//fine
+			//D7DCCXLib.D7ConnectionFromCacheServerX I = cnxCache.GetConnection(10000, "Local SQL Server", "", "") as D7DCCXLib.ID7ConnectionFromCacheServer as D7DCCXLib.D7ConnectionFromCacheServerX;
+			//NO
+			//D7DCCXLib.ID7ConnectionFromCacheServer I = cnxCache.GetConnection(10000, "Local SQL Server", "", "") as D7DCCXLib.ID7ConnectionFromCacheServer as D7DCCXLib.ID7ConnectionFromCacheServer;
+			// which interface we are using exactly
+			D7DCCXLib.IDdi I = cnxCache.GetConnection(10000, "Local SQL Server", "", "") as D7DCCXLib.IDdi;
+
+			//var I = cnxCache.GetConnection(10000, "Local SQL Server", "", "");
 			bool b = I.FirstData("select * from datasetreport.demo.salesman");
 			if (b)
 			{
