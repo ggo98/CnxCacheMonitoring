@@ -27,8 +27,8 @@ namespace CnxCacheMonitoring
 			const string progId = "D7ConnectionCacheServerSX.D7ConnectionCacheServerSX.1";
 			Type comType = Type.GetTypeFromProgID(progId);
 			D7DCCXLib.ID7ConnectionCacheServer cnxCache = Activator.CreateInstance(comType) as D7DCCXLib.ID7ConnectionCacheServer;
+			//GetDataBasicExample(cnxCache);
 			MonitoringExample(cnxCache);
-			//TestGetData(cnxCache);
 		}
 		
 		void MonitoringExample(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
