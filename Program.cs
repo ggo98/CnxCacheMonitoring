@@ -27,11 +27,11 @@ namespace CnxCacheMonitoring
 			const string progId = "D7ConnectionCacheServerSX.D7ConnectionCacheServerSX.1";
 			Type comType = Type.GetTypeFromProgID(progId);
 			D7DCCXLib.ID7ConnectionCacheServer cnxCache = Activator.CreateInstance(comType) as D7DCCXLib.ID7ConnectionCacheServer;
-			TestMonitor(cnxCache);
+			MonitoringExample(cnxCache);
 			//TestGetData(cnxCache);
 		}
 		
-		void TestMonitor(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
+		void MonitoringExample(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
 		{
 			var I = cnxCache as D7DCCXLib.ID7ConnectionCacheServer3;
 			while (true)
@@ -46,7 +46,7 @@ namespace CnxCacheMonitoring
 			}
 		}
 
-		void TestGetData(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
+		void GetDataBasicExample(D7DCCXLib.ID7ConnectionCacheServer cnxCache)
 		{
 			//fine
 			//D7DCCXLib.D7ConnectionFromCacheServerX I = cnxCache.GetConnection(10000, "Local SQL Server", "", "") as D7DCCXLib.ID7ConnectionFromCacheServer as D7DCCXLib.D7ConnectionFromCacheServerX;
